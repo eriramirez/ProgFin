@@ -17,6 +17,10 @@ Follow this step only if you have Windows. MacOS is already well suited for our 
 
 ### Git
 Version control of our files.
+```
+git config --global user.email "cuenta.personal@gmail.com"
+git config --global user.name "github_username"
+```
 
 
 ### Conda
