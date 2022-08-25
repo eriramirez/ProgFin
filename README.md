@@ -25,6 +25,17 @@ git config --global user.name "github_username"
 
 ### Conda
 Python environments
+1. Download installer from
+1. After installing run the following command 
+    ```
+    conda init bash
+    ```
+1. close the terminal and open it again
+1. create a new python environment
+    ```
+    conda create -n progfin python=3.9 jupyter
+    conda activate progfin
+    ```
 
 ### VSCode
 IDE for modifying files, use git and run our programs.
