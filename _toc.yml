@@ -6,4 +6,6 @@ root: intro
 chapters:
 - file: chapters/001_session fibonacci serie.ipynb
 - file: chapters/002_session bond pricing.ipynb
-
+- file: chapters/003_session retrieving data.ipynb
+- file: chapters/004_ session retrieving data.ipynb
+- file: chapters/004_session international portfolio optimization.ipynb
