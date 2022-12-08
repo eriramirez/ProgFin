@@ -1,0 +1,11 @@
+jupyter
+jupyter-book
+scipy
+matplotlib
+numpy
+pandas
+yfinance
+cvxpy
+pybind11
+riskfolio-lib
+ghp-import
