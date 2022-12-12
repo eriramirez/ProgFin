@@ -1,0 +1,2310 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Optimization of an International Portfolio &#8212; Prog Fin</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Retrieving Data (Incomplete)" href="004_%20session%20retrieving%20data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Prog Fin</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Prog Fin
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="001_session%20fibonacci%20serie.html">
+   Coding first examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="002_session%20bond%20pricing.html">
+   Bond valuation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003_session%20retrieving%20data.html">
+   Portfolio Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="004_%20session%20retrieving%20data.html">
+   Retrieving Data (Incomplete)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Optimization of an International Portfolio
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/eriramirez/Prog Fin/main?urlpath=tree/docs/chapters/004_session international portfolio optimization.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/eriramirez/Prog Fin"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/eriramirez/Prog Fin/issues/new?title=Issue%20on%20page%20%2Fchapters/004_session international portfolio optimization.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters/004_session international portfolio optimization.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Optimization of an International Portfolio</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="optimization-of-an-international-portfolio">
+<h1>Optimization of an International Portfolio<a class="headerlink" href="#optimization-of-an-international-portfolio" title="Permalink to this headline">#</a></h1>
+<p>Install the following libraries by copying this to a cell and running it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install &#39;pandas_datareader&gt;=0.10&#39;
+! pip install cvxpy 
+! pip install riskfolio-lib
+! pip install yfinance
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Import the necessary libraries 
+from pandas_datareader.data import DataReader
+from datetime import datetime, timedelta
+import pandas as pd
+import numpy as np
+from typing import Dict, List
+import yfinance as yf
+import cvxpy as cp
+import riskfolio as rp
+import warnings
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create the formula to get the dates of the last 5 years.
+def fnct_last_five_years():
+    five_years = timedelta(days=365*5, )
+    now = datetime.now()
+    five_years_ago = now - five_years
+    return now, five_years_ago
+
+now, five_years_ago = fnct_last_five_years()
+print(now)
+print(five_years_ago)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-17 10:29:48.306566
+2017-10-18 10:29:48.306566
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fnct_get_ticker_data(ticker: str, data_source: str = &quot;yahoo&quot;) -&gt; pd.DataFrame:
+    &quot;&quot;&quot;Get the data in the last 5 years for the specified ticker&quot;&quot;&quot;
+    print(f&#39;downloading data for {ticker}&#39;)
+    now, five_years_ago = fnct_last_five_years()
+    ticker_df = DataReader(ticker, data_source, five_years_ago, now)
+    return ticker_df
+
+
+def fnct_convert_currency(ticker_adj_close:pd.Series, currency:pd.Series) -&gt; pd.Series:
+    df = pd.DataFrame({&quot;x&quot;:ticker_adj_close, &quot;c&quot;:currency})
+    # drop rows where all columns in subset are NA
+    df = df.dropna(axis=0, how=&#39;all&#39;, subset=(&#39;x&#39;, &#39;c&#39;))
+    # fill with the value of the previous date&#39;s values
+    df = df.fillna(method=&#39;ffill&#39;)
+    # in case there are empty rows at the beginning, fill with following date&#39;s values
+    df = df.fillna(method=&#39;bfill&#39;)
+    return df[&#39;x&#39;] * df[&#39;c&#39;]
+
+
+def fnct_get_currency(*tickers):
+    &quot;&quot;&quot;obtain the currency for each ticker&quot;&quot;&quot;
+    currencies = dict()
+    for ticker in tickers:
+        t = yf.Ticker(ticker, )
+        currencies[ticker] = t.info[&quot;currency&quot;]
+    return currencies
+
+def fnct_get_currencies_data(currencies:dict):
+    &quot;&quot;&quot;Use the output of get_currency to read the data for all the currencies once&quot;&quot;&quot;
+    currencies_data = {}
+    unique_currencies = set(currencies.values())
+    ticker_map = {
+        &quot;USD&quot;: &quot;MXN=X&quot;,
+        &quot;CAD&quot;: &quot;CADMXN=X&quot;,
+        &quot;EUR&quot;: &quot;EURMXN=X&quot;,
+    }
+    for c in unique_currencies:
+        if c == &quot;MXN&quot;:
+            continue
+        exchange = ticker_map[c]
+        currencies_data[c] = fnct_get_ticker_data(exchange)[&#39;Close&#39;] # {&quot;USD&quot;:pd.Series, CAD:pd.Series}
+    df = pd.DataFrame(currencies_data)
+    df[&quot;MXN&quot;] = 1
+    return df
+
+def fnct_get_tickers_in_mxn(currencies:List[str]):
+    c_df = fnct_get_currencies_data(currencies)
+    t_data = {}
+    for ticker, coin in currencies.items():
+        t = fnct_get_ticker_data(ticker)[&#39;Adj Close&#39;]
+        t_in_mxn = fnct_convert_currency(t, c_df[coin])
+        t_data[ticker] = t_in_mxn
+    return pd.DataFrame(t_data)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def suma(a, b):
+    c = a + b
+    return(c)
+
+suma(5, 7)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#tickers = [&quot;BIMBOA.MX&quot;, &quot;CEMEXCPO.MX&quot;, &quot;PE&amp;OLES.MX&quot;, &quot;AMXL.MX&quot;, &quot;HERDEZ.MX&quot;,
+#    &quot;BBD-B.TO&quot;, &quot;RY.TO&quot;, &quot;ENB.TO&quot;, 
+#    &quot;VWAGY&quot;, &quot;SAP&quot;, &quot;NSRGY&quot;, &quot;EADSY&quot;,]
+assets = [&#39;JCI&#39;, &#39;TGT&#39;, &#39;CMCSA&#39;, &#39;CPB&#39;, &#39;MO&#39;, &#39;APA&#39;, 
+        &#39;MMC&#39;, &#39;JPM&#39;, &#39;ZION&#39;, &#39;PSA&#39;, &#39;BAX&#39;, &#39;BMY&#39;, &#39;LUV&#39;, 
+        &#39;PCAR&#39;, &#39;TXT&#39;, &#39;TMO&#39;, &#39;DE&#39;, &#39;MSFT&#39;, &#39;HPQ&#39;, &#39;SEE&#39;, 
+        &#39;VZ&#39;, &#39;CNP&#39;, &#39;NI&#39;, &#39;T&#39;, &#39;BA&#39;]
+currencies = fnct_get_currency(*assets)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>currencies
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;JCI&#39;: &#39;USD&#39;,
+ &#39;TGT&#39;: &#39;USD&#39;,
+ &#39;CMCSA&#39;: &#39;USD&#39;,
+ &#39;CPB&#39;: &#39;USD&#39;,
+ &#39;MO&#39;: &#39;USD&#39;,
+ &#39;APA&#39;: &#39;USD&#39;,
+ &#39;MMC&#39;: &#39;USD&#39;,
+ &#39;JPM&#39;: &#39;USD&#39;,
+ &#39;ZION&#39;: &#39;USD&#39;,
+ &#39;PSA&#39;: &#39;USD&#39;,
+ &#39;BAX&#39;: &#39;USD&#39;,
+ &#39;BMY&#39;: &#39;USD&#39;,
+ &#39;LUV&#39;: &#39;USD&#39;,
+ &#39;PCAR&#39;: &#39;USD&#39;,
+ &#39;TXT&#39;: &#39;USD&#39;,
+ &#39;TMO&#39;: &#39;USD&#39;,
+ &#39;DE&#39;: &#39;USD&#39;,
+ &#39;MSFT&#39;: &#39;USD&#39;,
+ &#39;HPQ&#39;: &#39;USD&#39;,
+ &#39;SEE&#39;: &#39;USD&#39;,
+ &#39;VZ&#39;: &#39;USD&#39;,
+ &#39;CNP&#39;: &#39;USD&#39;,
+ &#39;NI&#39;: &#39;USD&#39;,
+ &#39;T&#39;: &#39;USD&#39;,
+ &#39;BA&#39;: &#39;USD&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = fnct_get_tickers_in_mxn(currencies)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>downloading data for MXN=X
+downloading data for JCI
+downloading data for TGT
+downloading data for CMCSA
+downloading data for CPB
+downloading data for MO
+downloading data for APA
+downloading data for MMC
+downloading data for JPM
+downloading data for ZION
+downloading data for PSA
+downloading data for BAX
+downloading data for BMY
+downloading data for LUV
+downloading data for PCAR
+downloading data for TXT
+downloading data for TMO
+downloading data for DE
+downloading data for MSFT
+downloading data for HPQ
+downloading data for SEE
+downloading data for VZ
+downloading data for CNP
+downloading data for NI
+downloading data for T
+downloading data for BA
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JCI</th>
+      <th>TGT</th>
+      <th>CMCSA</th>
+      <th>CPB</th>
+      <th>MO</th>
+      <th>APA</th>
+      <th>MMC</th>
+      <th>JPM</th>
+      <th>ZION</th>
+      <th>PSA</th>
+      <th>...</th>
+      <th>TMO</th>
+      <th>DE</th>
+      <th>MSFT</th>
+      <th>HPQ</th>
+      <th>SEE</th>
+      <th>VZ</th>
+      <th>CNP</th>
+      <th>NI</th>
+      <th>T</th>
+      <th>BA</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-17</th>
+      <td>689.704285</td>
+      <td>1012.832809</td>
+      <td>632.993568</td>
+      <td>750.686467</td>
+      <td>918.418619</td>
+      <td>735.248286</td>
+      <td>1465.707668</td>
+      <td>1641.217756</td>
+      <td>788.528232</td>
+      <td>3495.057735</td>
+      <td>...</td>
+      <td>3534.338448</td>
+      <td>2268.733485</td>
+      <td>1391.134787</td>
+      <td>361.118089</td>
+      <td>779.244652</td>
+      <td>761.970729</td>
+      <td>477.643148</td>
+      <td>432.306007</td>
+      <td>343.762416</td>
+      <td>4654.084944</td>
+    </tr>
+    <tr>
+      <th>2017-10-18</th>
+      <td>686.692908</td>
+      <td>1008.410594</td>
+      <td>630.229801</td>
+      <td>747.408831</td>
+      <td>914.408633</td>
+      <td>732.038056</td>
+      <td>1459.308117</td>
+      <td>1634.051895</td>
+      <td>785.085372</td>
+      <td>3479.797667</td>
+      <td>...</td>
+      <td>3518.906872</td>
+      <td>2258.827775</td>
+      <td>1385.060836</td>
+      <td>359.541380</td>
+      <td>775.842326</td>
+      <td>758.643824</td>
+      <td>475.557670</td>
+      <td>430.418479</td>
+      <td>342.261486</td>
+      <td>4633.764348</td>
+    </tr>
+    <tr>
+      <th>2017-10-19</th>
+      <td>703.232802</td>
+      <td>1024.960037</td>
+      <td>648.637475</td>
+      <td>750.182071</td>
+      <td>916.995152</td>
+      <td>730.461788</td>
+      <td>1486.489311</td>
+      <td>1651.895823</td>
+      <td>790.627495</td>
+      <td>3522.333408</td>
+      <td>...</td>
+      <td>3613.444004</td>
+      <td>2277.157570</td>
+      <td>1403.879097</td>
+      <td>367.034360</td>
+      <td>784.776902</td>
+      <td>774.807100</td>
+      <td>482.922257</td>
+      <td>440.012549</td>
+      <td>345.382198</td>
+      <td>4660.642696</td>
+    </tr>
+    <tr>
+      <th>2017-10-20</th>
+      <td>709.712535</td>
+      <td>1047.518366</td>
+      <td>654.262377</td>
+      <td>760.102708</td>
+      <td>925.969871</td>
+      <td>724.011306</td>
+      <td>1489.134466</td>
+      <td>1675.467917</td>
+      <td>802.817498</td>
+      <td>3520.368294</td>
+      <td>...</td>
+      <td>3640.108147</td>
+      <td>2288.319763</td>
+      <td>1420.095990</td>
+      <td>368.037227</td>
+      <td>803.614404</td>
+      <td>779.845654</td>
+      <td>482.110507</td>
+      <td>438.368232</td>
+      <td>343.930483</td>
+      <td>4763.376280</td>
+    </tr>
+    <tr>
+      <th>2017-10-22</th>
+      <td>712.765843</td>
+      <td>1052.024973</td>
+      <td>657.077128</td>
+      <td>763.372802</td>
+      <td>929.953555</td>
+      <td>727.126129</td>
+      <td>1495.540983</td>
+      <td>1682.676072</td>
+      <td>806.271359</td>
+      <td>3535.513533</td>
+      <td>...</td>
+      <td>3655.768528</td>
+      <td>2298.164514</td>
+      <td>1426.205491</td>
+      <td>369.620587</td>
+      <td>807.071694</td>
+      <td>783.200686</td>
+      <td>484.184631</td>
+      <td>440.254169</td>
+      <td>345.410132</td>
+      <td>4783.869156</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-10-11</th>
+      <td>1024.346791</td>
+      <td>3100.128925</td>
+      <td>575.480249</td>
+      <td>975.587476</td>
+      <td>889.907528</td>
+      <td>812.253835</td>
+      <td>3057.188640</td>
+      <td>2045.884417</td>
+      <td>986.824217</td>
+      <td>5817.206395</td>
+      <td>...</td>
+      <td>10049.032748</td>
+      <td>7290.419423</td>
+      <td>4522.977815</td>
+      <td>497.224575</td>
+      <td>906.160659</td>
+      <td>721.156177</td>
+      <td>533.743887</td>
+      <td>499.030479</td>
+      <td>297.170943</td>
+      <td>2640.025796</td>
+    </tr>
+    <tr>
+      <th>2022-10-12</th>
+      <td>1019.232364</td>
+      <td>3079.068561</td>
+      <td>573.031114</td>
+      <td>980.484383</td>
+      <td>893.800693</td>
+      <td>813.907894</td>
+      <td>3035.726754</td>
+      <td>2069.423248</td>
+      <td>967.501773</td>
+      <td>5730.510840</td>
+      <td>...</td>
+      <td>9999.982234</td>
+      <td>7214.519345</td>
+      <td>4508.949865</td>
+      <td>493.138315</td>
+      <td>898.394520</td>
+      <td>712.643777</td>
+      <td>510.315241</td>
+      <td>483.151715</td>
+      <td>292.207916</td>
+      <td>2604.904687</td>
+    </tr>
+    <tr>
+      <th>2022-10-13</th>
+      <td>1047.525700</td>
+      <td>3078.654845</td>
+      <td>603.865413</td>
+      <td>1011.169932</td>
+      <td>916.684878</td>
+      <td>836.182830</td>
+      <td>3116.009612</td>
+      <td>2184.742405</td>
+      <td>1010.171162</td>
+      <td>5777.771382</td>
+      <td>...</td>
+      <td>10198.394242</td>
+      <td>7334.478176</td>
+      <td>4679.108166</td>
+      <td>519.767733</td>
+      <td>918.482694</td>
+      <td>727.115524</td>
+      <td>520.366980</td>
+      <td>504.186673</td>
+      <td>302.032587</td>
+      <td>2644.782608</td>
+    </tr>
+    <tr>
+      <th>2022-10-14</th>
+      <td>1015.564610</td>
+      <td>2910.259837</td>
+      <td>600.269781</td>
+      <td>1006.176007</td>
+      <td>903.500919</td>
+      <td>797.629722</td>
+      <td>3034.308766</td>
+      <td>2221.098174</td>
+      <td>1001.581605</td>
+      <td>5628.952780</td>
+      <td>...</td>
+      <td>10048.775832</td>
+      <td>7134.121926</td>
+      <td>4565.646030</td>
+      <td>508.181828</td>
+      <td>915.885832</td>
+      <td>726.716001</td>
+      <td>516.971109</td>
+      <td>489.204898</td>
+      <td>299.435744</td>
+      <td>2659.764383</td>
+    </tr>
+    <tr>
+      <th>2022-10-17</th>
+      <td>1043.406353</td>
+      <td>2991.730630</td>
+      <td>612.464554</td>
+      <td>1000.571768</td>
+      <td>890.439990</td>
+      <td>804.371419</td>
+      <td>3117.438593</td>
+      <td>2324.284020</td>
+      <td>1029.627426</td>
+      <td>5830.194984</td>
+      <td>...</td>
+      <td>10330.821563</td>
+      <td>7270.743176</td>
+      <td>4731.573281</td>
+      <td>509.821338</td>
+      <td>950.348488</td>
+      <td>742.366132</td>
+      <td>529.690969</td>
+      <td>502.382672</td>
+      <td>306.431977</td>
+      <td>2710.791619</td>
+    </tr>
+  </tbody>
+</table>
+<p>1451 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data.columns = assets
+Y =  data[assets].pct_change().dropna()
+display(Y.head())
+#pct_change_df = data.pct_change()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JCI</th>
+      <th>TGT</th>
+      <th>CMCSA</th>
+      <th>CPB</th>
+      <th>MO</th>
+      <th>APA</th>
+      <th>MMC</th>
+      <th>JPM</th>
+      <th>ZION</th>
+      <th>PSA</th>
+      <th>...</th>
+      <th>TMO</th>
+      <th>DE</th>
+      <th>MSFT</th>
+      <th>HPQ</th>
+      <th>SEE</th>
+      <th>VZ</th>
+      <th>CNP</th>
+      <th>NI</th>
+      <th>T</th>
+      <th>BA</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-18</th>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>...</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+      <td>-0.004366</td>
+    </tr>
+    <tr>
+      <th>2017-10-19</th>
+      <td>0.024086</td>
+      <td>0.016411</td>
+      <td>0.029208</td>
+      <td>0.003710</td>
+      <td>0.002829</td>
+      <td>-0.002153</td>
+      <td>0.018626</td>
+      <td>0.010920</td>
+      <td>0.007059</td>
+      <td>0.012224</td>
+      <td>...</td>
+      <td>0.026865</td>
+      <td>0.008115</td>
+      <td>0.013587</td>
+      <td>0.020840</td>
+      <td>0.011516</td>
+      <td>0.021305</td>
+      <td>0.015486</td>
+      <td>0.022290</td>
+      <td>0.009118</td>
+      <td>0.005801</td>
+    </tr>
+    <tr>
+      <th>2017-10-20</th>
+      <td>0.009214</td>
+      <td>0.022009</td>
+      <td>0.008672</td>
+      <td>0.013224</td>
+      <td>0.009787</td>
+      <td>-0.008831</td>
+      <td>0.001779</td>
+      <td>0.014270</td>
+      <td>0.015418</td>
+      <td>-0.000558</td>
+      <td>...</td>
+      <td>0.007379</td>
+      <td>0.004902</td>
+      <td>0.011551</td>
+      <td>0.002732</td>
+      <td>0.024004</td>
+      <td>0.006503</td>
+      <td>-0.001681</td>
+      <td>-0.003737</td>
+      <td>-0.004203</td>
+      <td>0.022043</td>
+    </tr>
+    <tr>
+      <th>2017-10-22</th>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>...</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+      <td>0.004302</td>
+    </tr>
+    <tr>
+      <th>2017-10-23</th>
+      <td>0.008752</td>
+      <td>0.022391</td>
+      <td>-0.009169</td>
+      <td>0.019530</td>
+      <td>0.001233</td>
+      <td>-0.020890</td>
+      <td>0.007082</td>
+      <td>0.007270</td>
+      <td>0.001010</td>
+      <td>0.007540</td>
+      <td>...</td>
+      <td>0.011648</td>
+      <td>0.012432</td>
+      <td>0.009250</td>
+      <td>0.013576</td>
+      <td>0.000961</td>
+      <td>-0.002007</td>
+      <td>0.007975</td>
+      <td>0.015050</td>
+      <td>0.000761</td>
+      <td>-0.000267</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Building the portfolio object
+port = rp.Portfolio(returns = Y)
+
+#Calculating optimal portfolio
+
+#Select method and estimate input parameters
+method_mu = &#39;hist&#39; # method to estimate expected returns based on historical data
+method_cov = &#39;hist&#39; # method to estimate covariance matrix based on historical data 
+
+port.assets_stats(method_mu = method_mu, method_cov = method_cov, d = 0.94)
+
+#Estimate optimal portfolio
+model = &quot;Classic&quot; # Could be Classic (historical), BL (Black Litterman), or FM (FActor Model)
+rm = &quot;MV&quot; # Risk measure used, this time will be variance
+obj = &#39;Sharpe&#39; # Objective function, could be MinRisk, MaxRet, Utility of Sharpe
+hist = True # Use historical scenarios for risk measures that depend on scenarios
+rf = 0 # Risk Free Rate
+l = 0 # Risk aversion factor, unly useful when objective is &#39;Utility&#39;
+
+w = port.optimization(model=model, obj=obj, rf=rf, l=l, hist=hist)
+
+display(w.T)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JCI</th>
+      <th>TGT</th>
+      <th>CMCSA</th>
+      <th>CPB</th>
+      <th>MO</th>
+      <th>APA</th>
+      <th>MMC</th>
+      <th>JPM</th>
+      <th>ZION</th>
+      <th>PSA</th>
+      <th>...</th>
+      <th>TMO</th>
+      <th>DE</th>
+      <th>MSFT</th>
+      <th>HPQ</th>
+      <th>SEE</th>
+      <th>VZ</th>
+      <th>CNP</th>
+      <th>NI</th>
+      <th>T</th>
+      <th>BA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>weights</th>
+      <td>1.788868e-08</td>
+      <td>0.198683</td>
+      <td>9.796571e-09</td>
+      <td>0.000001</td>
+      <td>1.439551e-08</td>
+      <td>0.016471</td>
+      <td>7.491569e-08</td>
+      <td>1.359059e-08</td>
+      <td>1.869758e-08</td>
+      <td>1.431077e-07</td>
+      <td>...</td>
+      <td>0.277108</td>
+      <td>0.253249</td>
+      <td>0.254488</td>
+      <td>1.304065e-08</td>
+      <td>1.714977e-08</td>
+      <td>1.421687e-08</td>
+      <td>1.396925e-08</td>
+      <td>1.723071e-08</td>
+      <td>1.090627e-08</td>
+      <td>5.637350e-09</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rp.Reports.jupyter_report(Y, w)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\riskfolio\PlotFunctions.py:569: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  sizes2 = sizes2.append(item)
+c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\scipy\optimize\_optimize.py:284: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds
+  warnings.warn(&quot;Values in x were outside bounds during a &quot;
+c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\riskfolio\RiskFunctions.py:349: RuntimeWarning: overflow encountered in exp
+  value = np.mean(np.exp(-1 / z * a), axis=0)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;AxesSubplot:title={&#39;center&#39;:&#39;Copyright (c) 2020-2022, Dany Cajas. All rights reserved.&#39;}&gt;,
+       &lt;AxesSubplot:title={&#39;center&#39;:&#39;Historical Compounded Cumulative Returns&#39;}&gt;,
+       &lt;AxesSubplot:title={&#39;center&#39;:&#39;Portfolio Composition&#39;}&gt;,
+       &lt;AxesSubplot:title={&#39;center&#39;:&#39;Risk (Standard Deviation) Contribution per Asset&#39;}&gt;,
+       &lt;AxesSubplot:title={&#39;center&#39;:&#39;Portfolio Returns Histogram&#39;}, ylabel=&#39;Probability Density&#39;&gt;,
+       &lt;AxesSubplot:title={&#39;center&#39;:&#39;Historical Uncompounded Drawdown&#39;}&gt;],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/004_session international portfolio optimization_12_2.png" src="../_images/004_session international portfolio optimization_12_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rp.Reports.excel_report(
+    Y,
+    w,
+    rf=0,
+    alpha=0.05,
+    t_factor=252,
+    ini_days=1,
+    days_per_year=252,
+    name=r&quot;C:\Users\L00616607\Developer\ProgFin\python port1.xlsx&quot;,
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\scipy\optimize\_optimize.py:284: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds
+  warnings.warn(&quot;Values in x were outside bounds during a &quot;
+c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\riskfolio\RiskFunctions.py:349: RuntimeWarning: overflow encountered in exp
+  value = np.mean(np.exp(-1 / z * a), axis=0)
+c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\xlsxwriter\workbook.py:339: UserWarning: Calling close() on already closed file.
+  warn(&quot;Calling close() on already closed file.&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Ploting the composition of the portfolio
+ax = rp.plot_pie(w=w, title=&#39;Sharpe Mean Variance&#39;, others=0.05, nrow=len(data.columns), 
+                cmap=&#39;tab20&#39;, height=6, width=10, ax=None)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\L00616607\Anaconda3\envs\progfin\lib\site-packages\riskfolio\PlotFunctions.py:569: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  sizes2 = sizes2.append(item)
+</pre></div>
+</div>
+<img alt="../_images/004_session international portfolio optimization_14_1.png" src="../_images/004_session international portfolio optimization_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ann_mean_return = ((1 + Y.mean())**252)-1
+print(ann_mean_return)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JCI      0.115933
+TGT      0.275732
+CMCSA    0.033294
+CPB      0.092021
+MO       0.027632
+APA      0.271488
+MMC      0.170360
+JPM      0.109976
+ZION     0.113081
+PSA      0.125148
+BAX      0.027283
+BMY      0.084847
+LUV     -0.021063
+PCAR     0.112626
+TXT      0.106032
+TMO      0.249513
+DE       0.289205
+MSFT     0.290017
+HPQ      0.130075
+SEE      0.089473
+VZ       0.017172
+CNP      0.064804
+NI       0.062508
+T        0.009353
+BA       0.011271
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ann_stdev = Y.std() * (252**(1/2))
+print(ann_stdev)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JCI      0.274580
+TGT      0.331823
+CMCSA    0.277959
+CPB      0.276322
+MO       0.255313
+APA      0.652359
+MMC      0.229482
+JPM      0.298010
+ZION     0.350642
+PSA      0.240674
+BAX      0.252858
+BMY      0.240625
+LUV      0.366004
+PCAR     0.264575
+TXT      0.362621
+TMO      0.270296
+DE       0.321626
+MSFT     0.290609
+HPQ      0.352056
+SEE      0.322590
+VZ       0.208137
+CNP      0.298948
+NI       0.263072
+T        0.242315
+BA       0.458942
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Y.cov()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JCI</th>
+      <th>TGT</th>
+      <th>CMCSA</th>
+      <th>CPB</th>
+      <th>MO</th>
+      <th>APA</th>
+      <th>MMC</th>
+      <th>JPM</th>
+      <th>ZION</th>
+      <th>PSA</th>
+      <th>...</th>
+      <th>TMO</th>
+      <th>DE</th>
+      <th>MSFT</th>
+      <th>HPQ</th>
+      <th>SEE</th>
+      <th>VZ</th>
+      <th>CNP</th>
+      <th>NI</th>
+      <th>T</th>
+      <th>BA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>JCI</th>
+      <td>0.000299</td>
+      <td>0.000142</td>
+      <td>0.000149</td>
+      <td>0.000076</td>
+      <td>0.000116</td>
+      <td>0.000237</td>
+      <td>0.000149</td>
+      <td>0.000206</td>
+      <td>0.000207</td>
+      <td>0.000108</td>
+      <td>...</td>
+      <td>0.000128</td>
+      <td>0.000200</td>
+      <td>0.000155</td>
+      <td>0.000197</td>
+      <td>0.000178</td>
+      <td>0.000090</td>
+      <td>0.000153</td>
+      <td>0.000116</td>
+      <td>0.000129</td>
+      <td>0.000244</td>
+    </tr>
+    <tr>
+      <th>TGT</th>
+      <td>0.000142</td>
+      <td>0.000437</td>
+      <td>0.000135</td>
+      <td>0.000107</td>
+      <td>0.000116</td>
+      <td>0.000128</td>
+      <td>0.000135</td>
+      <td>0.000145</td>
+      <td>0.000139</td>
+      <td>0.000102</td>
+      <td>...</td>
+      <td>0.000141</td>
+      <td>0.000158</td>
+      <td>0.000172</td>
+      <td>0.000167</td>
+      <td>0.000126</td>
+      <td>0.000105</td>
+      <td>0.000113</td>
+      <td>0.000113</td>
+      <td>0.000113</td>
+      <td>0.000155</td>
+    </tr>
+    <tr>
+      <th>CMCSA</th>
+      <td>0.000149</td>
+      <td>0.000135</td>
+      <td>0.000307</td>
+      <td>0.000080</td>
+      <td>0.000113</td>
+      <td>0.000172</td>
+      <td>0.000131</td>
+      <td>0.000185</td>
+      <td>0.000173</td>
+      <td>0.000103</td>
+      <td>...</td>
+      <td>0.000112</td>
+      <td>0.000163</td>
+      <td>0.000172</td>
+      <td>0.000170</td>
+      <td>0.000140</td>
+      <td>0.000121</td>
+      <td>0.000148</td>
+      <td>0.000136</td>
+      <td>0.000152</td>
+      <td>0.000199</td>
+    </tr>
+    <tr>
+      <th>CPB</th>
+      <td>0.000076</td>
+      <td>0.000107</td>
+      <td>0.000080</td>
+      <td>0.000303</td>
+      <td>0.000106</td>
+      <td>-0.000016</td>
+      <td>0.000080</td>
+      <td>0.000064</td>
+      <td>0.000040</td>
+      <td>0.000102</td>
+      <td>...</td>
+      <td>0.000080</td>
+      <td>0.000051</td>
+      <td>0.000086</td>
+      <td>0.000050</td>
+      <td>0.000068</td>
+      <td>0.000106</td>
+      <td>0.000094</td>
+      <td>0.000106</td>
+      <td>0.000095</td>
+      <td>0.000016</td>
+    </tr>
+    <tr>
+      <th>MO</th>
+      <td>0.000116</td>
+      <td>0.000116</td>
+      <td>0.000113</td>
+      <td>0.000106</td>
+      <td>0.000259</td>
+      <td>0.000151</td>
+      <td>0.000099</td>
+      <td>0.000136</td>
+      <td>0.000133</td>
+      <td>0.000098</td>
+      <td>...</td>
+      <td>0.000080</td>
+      <td>0.000128</td>
+      <td>0.000095</td>
+      <td>0.000114</td>
+      <td>0.000115</td>
+      <td>0.000102</td>
+      <td>0.000118</td>
+      <td>0.000115</td>
+      <td>0.000120</td>
+      <td>0.000158</td>
+    </tr>
+    <tr>
+      <th>APA</th>
+      <td>0.000237</td>
+      <td>0.000128</td>
+      <td>0.000172</td>
+      <td>-0.000016</td>
+      <td>0.000151</td>
+      <td>0.001689</td>
+      <td>0.000161</td>
+      <td>0.000351</td>
+      <td>0.000402</td>
+      <td>0.000040</td>
+      <td>...</td>
+      <td>0.000105</td>
+      <td>0.000319</td>
+      <td>0.000180</td>
+      <td>0.000344</td>
+      <td>0.000227</td>
+      <td>0.000050</td>
+      <td>0.000237</td>
+      <td>0.000103</td>
+      <td>0.000166</td>
+      <td>0.000526</td>
+    </tr>
+    <tr>
+      <th>MMC</th>
+      <td>0.000149</td>
+      <td>0.000135</td>
+      <td>0.000131</td>
+      <td>0.000080</td>
+      <td>0.000099</td>
+      <td>0.000161</td>
+      <td>0.000209</td>
+      <td>0.000165</td>
+      <td>0.000136</td>
+      <td>0.000116</td>
+      <td>...</td>
+      <td>0.000146</td>
+      <td>0.000147</td>
+      <td>0.000167</td>
+      <td>0.000150</td>
+      <td>0.000137</td>
+      <td>0.000094</td>
+      <td>0.000153</td>
+      <td>0.000124</td>
+      <td>0.000109</td>
+      <td>0.000182</td>
+    </tr>
+    <tr>
+      <th>JPM</th>
+      <td>0.000206</td>
+      <td>0.000145</td>
+      <td>0.000185</td>
+      <td>0.000064</td>
+      <td>0.000136</td>
+      <td>0.000351</td>
+      <td>0.000165</td>
+      <td>0.000352</td>
+      <td>0.000328</td>
+      <td>0.000098</td>
+      <td>...</td>
+      <td>0.000120</td>
+      <td>0.000234</td>
+      <td>0.000177</td>
+      <td>0.000226</td>
+      <td>0.000201</td>
+      <td>0.000111</td>
+      <td>0.000190</td>
+      <td>0.000138</td>
+      <td>0.000163</td>
+      <td>0.000325</td>
+    </tr>
+    <tr>
+      <th>ZION</th>
+      <td>0.000207</td>
+      <td>0.000139</td>
+      <td>0.000173</td>
+      <td>0.000040</td>
+      <td>0.000133</td>
+      <td>0.000402</td>
+      <td>0.000136</td>
+      <td>0.000328</td>
+      <td>0.000488</td>
+      <td>0.000071</td>
+      <td>...</td>
+      <td>0.000081</td>
+      <td>0.000240</td>
+      <td>0.000130</td>
+      <td>0.000231</td>
+      <td>0.000192</td>
+      <td>0.000100</td>
+      <td>0.000173</td>
+      <td>0.000124</td>
+      <td>0.000162</td>
+      <td>0.000349</td>
+    </tr>
+    <tr>
+      <th>PSA</th>
+      <td>0.000108</td>
+      <td>0.000102</td>
+      <td>0.000103</td>
+      <td>0.000102</td>
+      <td>0.000098</td>
+      <td>0.000040</td>
+      <td>0.000116</td>
+      <td>0.000098</td>
+      <td>0.000071</td>
+      <td>0.000230</td>
+      <td>...</td>
+      <td>0.000104</td>
+      <td>0.000104</td>
+      <td>0.000119</td>
+      <td>0.000092</td>
+      <td>0.000107</td>
+      <td>0.000095</td>
+      <td>0.000142</td>
+      <td>0.000148</td>
+      <td>0.000093</td>
+      <td>0.000121</td>
+    </tr>
+    <tr>
+      <th>BAX</th>
+      <td>0.000109</td>
+      <td>0.000118</td>
+      <td>0.000134</td>
+      <td>0.000097</td>
+      <td>0.000096</td>
+      <td>0.000102</td>
+      <td>0.000109</td>
+      <td>0.000132</td>
+      <td>0.000117</td>
+      <td>0.000099</td>
+      <td>...</td>
+      <td>0.000146</td>
+      <td>0.000123</td>
+      <td>0.000149</td>
+      <td>0.000118</td>
+      <td>0.000090</td>
+      <td>0.000104</td>
+      <td>0.000124</td>
+      <td>0.000125</td>
+      <td>0.000108</td>
+      <td>0.000111</td>
+    </tr>
+    <tr>
+      <th>BMY</th>
+      <td>0.000099</td>
+      <td>0.000100</td>
+      <td>0.000107</td>
+      <td>0.000081</td>
+      <td>0.000093</td>
+      <td>0.000092</td>
+      <td>0.000109</td>
+      <td>0.000113</td>
+      <td>0.000096</td>
+      <td>0.000084</td>
+      <td>...</td>
+      <td>0.000121</td>
+      <td>0.000117</td>
+      <td>0.000120</td>
+      <td>0.000102</td>
+      <td>0.000108</td>
+      <td>0.000087</td>
+      <td>0.000108</td>
+      <td>0.000102</td>
+      <td>0.000097</td>
+      <td>0.000113</td>
+    </tr>
+    <tr>
+      <th>LUV</th>
+      <td>0.000213</td>
+      <td>0.000135</td>
+      <td>0.000193</td>
+      <td>0.000047</td>
+      <td>0.000140</td>
+      <td>0.000321</td>
+      <td>0.000143</td>
+      <td>0.000262</td>
+      <td>0.000294</td>
+      <td>0.000093</td>
+      <td>...</td>
+      <td>0.000090</td>
+      <td>0.000235</td>
+      <td>0.000156</td>
+      <td>0.000225</td>
+      <td>0.000174</td>
+      <td>0.000095</td>
+      <td>0.000180</td>
+      <td>0.000129</td>
+      <td>0.000160</td>
+      <td>0.000426</td>
+    </tr>
+    <tr>
+      <th>PCAR</th>
+      <td>0.000180</td>
+      <td>0.000139</td>
+      <td>0.000145</td>
+      <td>0.000084</td>
+      <td>0.000118</td>
+      <td>0.000234</td>
+      <td>0.000135</td>
+      <td>0.000200</td>
+      <td>0.000202</td>
+      <td>0.000088</td>
+      <td>...</td>
+      <td>0.000119</td>
+      <td>0.000214</td>
+      <td>0.000159</td>
+      <td>0.000185</td>
+      <td>0.000165</td>
+      <td>0.000091</td>
+      <td>0.000130</td>
+      <td>0.000101</td>
+      <td>0.000129</td>
+      <td>0.000233</td>
+    </tr>
+    <tr>
+      <th>TXT</th>
+      <td>0.000248</td>
+      <td>0.000164</td>
+      <td>0.000199</td>
+      <td>0.000051</td>
+      <td>0.000151</td>
+      <td>0.000434</td>
+      <td>0.000161</td>
+      <td>0.000304</td>
+      <td>0.000339</td>
+      <td>0.000120</td>
+      <td>...</td>
+      <td>0.000131</td>
+      <td>0.000285</td>
+      <td>0.000193</td>
+      <td>0.000268</td>
+      <td>0.000227</td>
+      <td>0.000104</td>
+      <td>0.000215</td>
+      <td>0.000158</td>
+      <td>0.000175</td>
+      <td>0.000443</td>
+    </tr>
+    <tr>
+      <th>TMO</th>
+      <td>0.000128</td>
+      <td>0.000141</td>
+      <td>0.000112</td>
+      <td>0.000080</td>
+      <td>0.000080</td>
+      <td>0.000105</td>
+      <td>0.000146</td>
+      <td>0.000120</td>
+      <td>0.000081</td>
+      <td>0.000104</td>
+      <td>...</td>
+      <td>0.000290</td>
+      <td>0.000130</td>
+      <td>0.000199</td>
+      <td>0.000139</td>
+      <td>0.000097</td>
+      <td>0.000089</td>
+      <td>0.000108</td>
+      <td>0.000103</td>
+      <td>0.000088</td>
+      <td>0.000122</td>
+    </tr>
+    <tr>
+      <th>DE</th>
+      <td>0.000200</td>
+      <td>0.000158</td>
+      <td>0.000163</td>
+      <td>0.000051</td>
+      <td>0.000128</td>
+      <td>0.000319</td>
+      <td>0.000147</td>
+      <td>0.000234</td>
+      <td>0.000240</td>
+      <td>0.000104</td>
+      <td>...</td>
+      <td>0.000130</td>
+      <td>0.000410</td>
+      <td>0.000174</td>
+      <td>0.000246</td>
+      <td>0.000191</td>
+      <td>0.000102</td>
+      <td>0.000165</td>
+      <td>0.000131</td>
+      <td>0.000145</td>
+      <td>0.000322</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>0.000155</td>
+      <td>0.000172</td>
+      <td>0.000172</td>
+      <td>0.000086</td>
+      <td>0.000095</td>
+      <td>0.000180</td>
+      <td>0.000167</td>
+      <td>0.000177</td>
+      <td>0.000130</td>
+      <td>0.000119</td>
+      <td>...</td>
+      <td>0.000199</td>
+      <td>0.000174</td>
+      <td>0.000335</td>
+      <td>0.000209</td>
+      <td>0.000137</td>
+      <td>0.000098</td>
+      <td>0.000142</td>
+      <td>0.000125</td>
+      <td>0.000110</td>
+      <td>0.000215</td>
+    </tr>
+    <tr>
+      <th>HPQ</th>
+      <td>0.000197</td>
+      <td>0.000167</td>
+      <td>0.000170</td>
+      <td>0.000050</td>
+      <td>0.000114</td>
+      <td>0.000344</td>
+      <td>0.000150</td>
+      <td>0.000226</td>
+      <td>0.000231</td>
+      <td>0.000092</td>
+      <td>...</td>
+      <td>0.000139</td>
+      <td>0.000246</td>
+      <td>0.000209</td>
+      <td>0.000492</td>
+      <td>0.000198</td>
+      <td>0.000092</td>
+      <td>0.000159</td>
+      <td>0.000123</td>
+      <td>0.000133</td>
+      <td>0.000296</td>
+    </tr>
+    <tr>
+      <th>SEE</th>
+      <td>0.000178</td>
+      <td>0.000126</td>
+      <td>0.000140</td>
+      <td>0.000068</td>
+      <td>0.000115</td>
+      <td>0.000227</td>
+      <td>0.000137</td>
+      <td>0.000201</td>
+      <td>0.000192</td>
+      <td>0.000107</td>
+      <td>...</td>
+      <td>0.000097</td>
+      <td>0.000191</td>
+      <td>0.000137</td>
+      <td>0.000198</td>
+      <td>0.000413</td>
+      <td>0.000101</td>
+      <td>0.000168</td>
+      <td>0.000121</td>
+      <td>0.000114</td>
+      <td>0.000234</td>
+    </tr>
+    <tr>
+      <th>VZ</th>
+      <td>0.000090</td>
+      <td>0.000105</td>
+      <td>0.000121</td>
+      <td>0.000106</td>
+      <td>0.000102</td>
+      <td>0.000050</td>
+      <td>0.000094</td>
+      <td>0.000111</td>
+      <td>0.000100</td>
+      <td>0.000095</td>
+      <td>...</td>
+      <td>0.000089</td>
+      <td>0.000102</td>
+      <td>0.000098</td>
+      <td>0.000092</td>
+      <td>0.000101</td>
+      <td>0.000172</td>
+      <td>0.000108</td>
+      <td>0.000122</td>
+      <td>0.000137</td>
+      <td>0.000091</td>
+    </tr>
+    <tr>
+      <th>CNP</th>
+      <td>0.000153</td>
+      <td>0.000113</td>
+      <td>0.000148</td>
+      <td>0.000094</td>
+      <td>0.000118</td>
+      <td>0.000237</td>
+      <td>0.000153</td>
+      <td>0.000190</td>
+      <td>0.000173</td>
+      <td>0.000142</td>
+      <td>...</td>
+      <td>0.000108</td>
+      <td>0.000165</td>
+      <td>0.000142</td>
+      <td>0.000159</td>
+      <td>0.000168</td>
+      <td>0.000108</td>
+      <td>0.000355</td>
+      <td>0.000225</td>
+      <td>0.000135</td>
+      <td>0.000256</td>
+    </tr>
+    <tr>
+      <th>NI</th>
+      <td>0.000116</td>
+      <td>0.000113</td>
+      <td>0.000136</td>
+      <td>0.000106</td>
+      <td>0.000115</td>
+      <td>0.000103</td>
+      <td>0.000124</td>
+      <td>0.000138</td>
+      <td>0.000124</td>
+      <td>0.000148</td>
+      <td>...</td>
+      <td>0.000103</td>
+      <td>0.000131</td>
+      <td>0.000125</td>
+      <td>0.000123</td>
+      <td>0.000121</td>
+      <td>0.000122</td>
+      <td>0.000225</td>
+      <td>0.000275</td>
+      <td>0.000126</td>
+      <td>0.000161</td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>0.000129</td>
+      <td>0.000113</td>
+      <td>0.000152</td>
+      <td>0.000095</td>
+      <td>0.000120</td>
+      <td>0.000166</td>
+      <td>0.000109</td>
+      <td>0.000163</td>
+      <td>0.000162</td>
+      <td>0.000093</td>
+      <td>...</td>
+      <td>0.000088</td>
+      <td>0.000145</td>
+      <td>0.000110</td>
+      <td>0.000133</td>
+      <td>0.000114</td>
+      <td>0.000137</td>
+      <td>0.000135</td>
+      <td>0.000126</td>
+      <td>0.000233</td>
+      <td>0.000168</td>
+    </tr>
+    <tr>
+      <th>BA</th>
+      <td>0.000244</td>
+      <td>0.000155</td>
+      <td>0.000199</td>
+      <td>0.000016</td>
+      <td>0.000158</td>
+      <td>0.000526</td>
+      <td>0.000182</td>
+      <td>0.000325</td>
+      <td>0.000349</td>
+      <td>0.000121</td>
+      <td>...</td>
+      <td>0.000122</td>
+      <td>0.000322</td>
+      <td>0.000215</td>
+      <td>0.000296</td>
+      <td>0.000234</td>
+      <td>0.000091</td>
+      <td>0.000256</td>
+      <td>0.000161</td>
+      <td>0.000168</td>
+      <td>0.000836</td>
+    </tr>
+  </tbody>
+</table>
+<p>25 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>w.round(4)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weights</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>JCI</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>TGT</th>
+      <td>0.1987</td>
+    </tr>
+    <tr>
+      <th>CMCSA</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>CPB</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>MO</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>APA</th>
+      <td>0.0165</td>
+    </tr>
+    <tr>
+      <th>MMC</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>JPM</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>ZION</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>PSA</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>BAX</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>BMY</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>LUV</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>PCAR</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>TXT</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>TMO</th>
+      <td>0.2771</td>
+    </tr>
+    <tr>
+      <th>DE</th>
+      <td>0.2532</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>0.2545</td>
+    </tr>
+    <tr>
+      <th>HPQ</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>SEE</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>VZ</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>CNP</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>NI</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>BA</th>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+#weight = np.full_like(ann_stdev,1/len(ann_stdev))
+#weight
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>portaf_ann_stdev = ((w.T @ Y.cov()) @ w) ** (1/2)
+portaf_ann_stdev
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weights</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>weights</th>
+      <td>0.014544</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame({&quot;goog&quot;:goog.Close, &quot;cemex&quot;:cemex.Close, &#39;mxn&#39;:mxn[&#39;Close&#39;]})
+# drop rows where all columns in subset are NA
+df = df.dropna(axis=0, how=&#39;all&#39;, subset=(&#39;goog&#39;, &#39;cemex&#39;))
+# fill with the value of the previous date&#39;s values
+df = df.fillna(method=&#39;ffill&#39;)
+# in case there are empty rows at the beginning, fill with following date&#39;s values
+df = df.fillna(method=&#39;bfill&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Add a column with google prices in MXN
+df[&#39;goog_mxn&#39;] = df.goog * df.mxn
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.plot(y=[&#39;goog_mxn&#39;, &quot;cemex&quot;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.corr()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.cov()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.std()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.std() * np.sqrt(252)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&#39;goog_mxn_change&#39;] = df.goog_mxn.pct_change()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.to_excel(&#39;example.xlsx&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="004_%20session%20retrieving%20data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Retrieving Data (Incomplete)</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Erika Ramirez, Fernando Cossio<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

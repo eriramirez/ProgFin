@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Coding first examples &#8212; Prog Fin</title>
+    <title>Time Value Of Money &#8212; Prog Fin</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bond valuation" href="002_session%20bond%20pricing.html" />
-    <link rel="prev" title="Prog Fin" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,9 +111,9 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="001_session%20fibonacci%20serie.html">
    Coding first examples
   </a>
  </li>
@@ -198,7 +196,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/eriramirez/Prog Fin/main?urlpath=tree/docs/chapters/001_session fibonacci serie.ipynb"
+        <a href="https://mybinder.org/v2/gh/eriramirez/Prog Fin/main?urlpath=tree/docs/chapters/008_session tvm buy vs rent decision.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -258,7 +256,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/eriramirez/Prog Fin/issues/new?title=Issue%20on%20page%20%2Fchapters/001_session fibonacci serie.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/eriramirez/Prog Fin/issues/new?title=Issue%20on%20page%20%2Fchapters/008_session tvm buy vs rent decision.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -286,7 +284,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapters/001_session fibonacci serie.ipynb"
+        <a href="../_sources/chapters/008_session tvm buy vs rent decision.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -323,23 +321,128 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-amount-of-the-loan">
+   Inputs for determining the amount of the Loan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-monthly-interest-rate">
+   Inputs for determining the monthly interest rate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-loan-life-in-months">
+   Inputs for determining the loan life in months
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#financing-information">
+   Financing information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtain-the-monthly-payment">
+     Obtain the monthly payment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-opportunity-cost">
+   Inputs for determining the opportunity cost
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-see-if-the-incremental-disbursement-is-worth-compared-to-the-selling-price-of-the-property-in-year-2-5-or-10">
+     Let see if the incremental disbursement is worth compared to the selling price of the property in year 2, 5 or 10
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Coding first examples</h1>
+                <h1>Time Value Of Money</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-amount-of-the-loan">
+   Inputs for determining the amount of the Loan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-monthly-interest-rate">
+   Inputs for determining the monthly interest rate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-loan-life-in-months">
+   Inputs for determining the loan life in months
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#financing-information">
+   Financing information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtain-the-monthly-payment">
+     Obtain the monthly payment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inputs-for-determining-the-opportunity-cost">
+   Inputs for determining the opportunity cost
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-see-if-the-incremental-disbursement-is-worth-compared-to-the-selling-price-of-the-property-in-year-2-5-or-10">
+     Let see if the incremental disbursement is worth compared to the selling price of the property in year 2, 5 or 10
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -347,57 +450,145 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="coding-first-examples">
-<h1>Coding first examples<a class="headerlink" href="#coding-first-examples" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="time-value-of-money">
+<h1>Time Value Of Money<a class="headerlink" href="#time-value-of-money" title="Permalink to this headline">#</a></h1>
+<p>The Buy vs Rent Decision</p>
+<section id="inputs-for-determining-the-amount-of-the-loan">
+<h2>Inputs for determining the amount of the Loan<a class="headerlink" href="#inputs-for-determining-the-amount-of-the-loan" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Generate the first n numbers of the fibonacci series
-n = 30
-fbci = [0, 1]
-for _ in range(2, n):
-    fbci.append(fbci[-1] + fbci[-2])
-print(fbci)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Loan amount (loan):
+property_price = 600000
+down_payment = .20
+loan = house_price*(1-down_payment)
+print(f&quot;The loan is valued at {loan:4.2f} USD&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The loan is valued at 480000.00 USD
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inputs-for-determining-the-monthly-interest-rate">
+<h2>Inputs for determining the monthly interest rate<a class="headerlink" href="#inputs-for-determining-the-monthly-interest-rate" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Monthly effective interest rate (i):
+ann_interest = .04
+#number of months in the capitalization period:
+compound_periods = 6
+# get effective monthly interest:
+i = ((1 + (ann_interest / 12 * compound_periods))**(1 / compound_periods)) - 1
+print(f&quot;The monthly efective rate is {i * 100:4.4f} percent&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The monthly efective rate is 0.3306 percent
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inputs-for-determining-the-loan-life-in-months">
+<h2>Inputs for determining the loan life in months<a class="headerlink" href="#inputs-for-determining-the-loan-life-in-months" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get the loan life in months
+years = 25
+n = years *12
+print(f&quot;The credit will be paid in{n:4.0f} months&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The credit will be paid in 300 months
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="financing-information">
+<h2>Financing information<a class="headerlink" href="#financing-information" title="Permalink to this headline">#</a></h2>
+<section id="obtain-the-monthly-payment">
+<h3>Obtain the monthly payment<a class="headerlink" href="#obtain-the-monthly-payment" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fnct_pmt(loan, i, n):
+    pmt = loan * i *(1 + i)**n / ((1 + i)**n - 1)
+    return pmt
+    
+print(fnct_pmt(loan, i, n))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2524.896985400441
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inputs-for-determining-the-opportunity-cost">
+<h2>Inputs for determining the opportunity cost<a class="headerlink" href="#inputs-for-determining-the-opportunity-cost" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Monthly opportunity Cost from initial disbursment due to the withdrawal from own invested resources:
+legal_costs = .00 #as percent of the property price
+buying_tax = .03 #as percent of the property price
+closing_fees = 2000 #in dollar cost
+initial_disbursement = (((legal_costs + buying_tax) * property_price) + closing_fees + down_payment*property_price)
+opportunity_cost = initial_disbursement * i
+print(f&quot;The initial disbursement from the own investment is {initial_disbursement:4.2f} USD&quot;)
+print(f&quot;And this will make to stop receiving interests of {opportunity_cost:4.2f} USD monthly as opportunity cost&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The initial disbursement from the own investment is 140000.00 USD
+And this will make to stop receiving interests of 462.82 USD monthly as opportunity cost
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for _ in range(20):
-    print(_)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Owner monthly disbursement if property is bought, inluding financial and opportunity costs
+condo_fees = 1055
+property_tax = 300
+maintenance_fee = 50
+
+tot_monthly_outflow = condo_fees + property_tax + maintenance_fee + fnct_pmt(loan, i, n) + opportunity_cost
+print(f&quot;Total monthly disbursement during the life of the credit is {tot_monthly_outflow:4.2f}&quot;)
+
+monthly_rent = 3000
+
+#incremental monthly disbursement due to the acquisition of the property:
+incremental_payment = tot_monthly_outflow - monthly_rent
+print(f&quot;The investor should make an incremental disbursement of {incremental_payment:4.2f} USD monthly, in order to be the owner of the property&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total monthly disbursement during the life of the credit is 4392.72
+The investor should make an incremental disbursement of 1392.72 USD monthly in order to be the owner of the property
 </pre></div>
 </div>
 </div>
 </div>
+<section id="let-see-if-the-incremental-disbursement-is-worth-compared-to-the-selling-price-of-the-property-in-year-2-5-or-10">
+<h3>Let see if the incremental disbursement is worth compared to the selling price of the property in year 2, 5 or 10<a class="headerlink" href="#let-see-if-the-incremental-disbursement-is-worth-compared-to-the-selling-price-of-the-property-in-year-2-5-or-10" title="Permalink to this headline">#</a></h3>
+<p>Scenarios:
+A. The condo price remains unchanged
+B. The condo price drops 10% over the next two years, then increases back to it’s purchase price by the end of 5 years
+C. The condo price increases annually by the annual rate of inflation of 2% over the next 10 years
+D. The condo price increases annually by an annual rate of 5% over the next 10 years.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,20 +618,6 @@ print(fbci)
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Prog Fin</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="002_session%20bond%20pricing.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bond valuation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

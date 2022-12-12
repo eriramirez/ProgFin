@@ -133,7 +133,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="004_%20session%20retrieving%20data.html">
-   Retrieving Data
+   Retrieving Data (Incomplete)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="004_session%20international%20portfolio%20optimization.html">
+   Optimization of an International Portfolio
   </a>
  </li>
 </ul>
@@ -393,7 +398,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="bond-valuation">
 <h1>Bond valuation<a class="headerlink" href="#bond-valuation" title="Permalink to this headline">#</a></h1>
-<p>Intro to Bond Pricing</p>
+<p>In this chapter we will cover how to implement a bond pricing. First, we need to define
+a few formulas that are useful.</p>
 <p>We define a few variables that we will use</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(FV\)</span> is the <em>Face Value</em> that represents the amount of money that will be redimed at the end of the bond life.</p></li>
@@ -429,7 +435,7 @@ P(r) = {\color{chocolate} C} * {\color{royalblue}PV_A} + {\color{purple}PV_{FV}}
 <li><p><span class="math notranslate nohighlight">\(PV_{FV}\)</span> is the <em>Present Value of the Face Value</em>.</p>
 <div class="math notranslate nohighlight">
 \[
-    PV_F = {\color{purple}\frac{F}{(1+r)^{n}}}
+    PV_{FV} = {\color{purple}\frac{F}{(1+r)^{n}}}
     \]</div>
 </li>
 </ul>
@@ -584,7 +590,7 @@ plt.show()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1999/417152053.py:5: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1945/417152053.py:5: RuntimeWarning: invalid value encountered in double_scalars
   pv_coupon = coupon * ((1 - (1 + required_rate) ** (-n_coupons)) / required_rate)
 </pre></div>
 </div>

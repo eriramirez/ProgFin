@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Retrieving Data &#8212; Prog Fin</title>
+    <title>Retrieving Data (Incomplete) &#8212; Prog Fin</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Optimization of an International Portfolio" href="004_session%20international%20portfolio%20optimization.html" />
     <link rel="prev" title="Portfolio Optimization" href="003_session%20retrieving%20data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -130,7 +131,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Retrieving Data
+   Retrieving Data (Incomplete)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="004_session%20international%20portfolio%20optimization.html">
+   Optimization of an International Portfolio
   </a>
  </li>
 </ul>
@@ -329,7 +335,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Retrieving Data</h1>
+                <h1>Retrieving Data (Incomplete)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -341,42 +347,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="retrieving-data">
-<h1>Retrieving Data<a class="headerlink" href="#retrieving-data" title="Permalink to this headline">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install yfinance
+  <section class="tex2jax_ignore mathjax_ignore" id="retrieving-data-incomplete">
+<h1>Retrieving Data (Incomplete)<a class="headerlink" href="#retrieving-data-incomplete" title="Permalink to this headline">#</a></h1>
+<p>Install <code class="docutils literal notranslate"><span class="pre">yfinance</span></code> with the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install yfinance
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yfinance
-  Downloading yfinance-0.1.74-py2.py3-none-any.whl (27 kB)
-Requirement already satisfied: lxml&gt;=4.5.1 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from yfinance) (4.9.1)
-Requirement already satisfied: numpy&gt;=1.15 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from yfinance) (1.23.2)
-Collecting multitasking&gt;=0.0.7
-  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
-Requirement already satisfied: pandas&gt;=0.24.0 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from yfinance) (1.4.4)
-Requirement already satisfied: requests&gt;=2.26 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from yfinance) (2.28.1)
-Requirement already satisfied: pytz&gt;=2020.1 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2022.1)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2.8.2)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from requests&gt;=2.26-&gt;yfinance) (2022.6.15)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.11)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from requests&gt;=2.26-&gt;yfinance) (3.3)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
-Requirement already satisfied: six&gt;=1.5 in c:\users\l00616607\anaconda3\envs\progfin\lib\site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.24.0-&gt;yfinance) (1.16.0)
-Installing collected packages: multitasking, yfinance
-Successfully installed multitasking-0.0.11 yfinance-0.1.74
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>! pip install pandas_datareader
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -392,7 +367,7 @@ import numpy as np
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#create the formula to get the dates of the last 5 years.
-five_years = timedelta(days=365*5, )
+five_years = timedelta(days=365*5)
 now = datetime.now()
 five_years_ago = now - five_years
 print(now)
@@ -479,6 +454,13 @@ def get_close_price(*tickers) :
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Portfolio Optimization</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="004_session%20international%20portfolio%20optimization.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optimization of an International Portfolio</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

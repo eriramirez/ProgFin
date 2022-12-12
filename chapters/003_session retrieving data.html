@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Retrieving Data" href="004_%20session%20retrieving%20data.html" />
+    <link rel="next" title="Retrieving Data (Incomplete)" href="004_%20session%20retrieving%20data.html" />
     <link rel="prev" title="Bond valuation" href="002_session%20bond%20pricing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -131,7 +131,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="004_%20session%20retrieving%20data.html">
-   Retrieving Data
+   Retrieving Data (Incomplete)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="004_session%20international%20portfolio%20optimization.html">
+   Optimization of an International Portfolio
   </a>
  </li>
 </ul>
@@ -351,20 +356,34 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas_datareader in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (0.10.0)
-Requirement already satisfied: pandas&gt;=0.23 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (1.5.2)
-Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (4.9.1)
-Requirement already satisfied: requests&gt;=2.19.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (2.28.1)
-Requirement already satisfied: numpy&gt;=1.20.3 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (1.23.5)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (2022.6)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (2.1.1)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (1.26.13)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (2022.12.7)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (3.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas_datareader
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas_datareader) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/109.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">92.2/109.5 kB</span> <span class=" -Color -Color-Red">2.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: pandas&gt;=0.23 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (1.5.2)
+Requirement already satisfied: requests&gt;=2.19.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (2.28.1)
+Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas_datareader) (4.9.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (2022.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.20.3 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas_datareader) (1.23.5)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (1.26.13)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (2022.12.7)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (2.1.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas_datareader) (3.4)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas_datareader) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas_datareader
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pandas_datareader-0.10.0
 </pre></div>
 </div>
 </div>
@@ -392,8 +411,8 @@ print(five_years_ago)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-12-08 21:22:48.743789
-2017-12-09 21:22:48.743789
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-12-12 09:23:09.580302
+2017-12-13 09:23:09.580302
 </pre></div>
 </div>
 </div>
@@ -494,29 +513,29 @@ df[&#39;goog_mxn&#39;] = df.goog * df.mxn
     <tr>
       <th>goog</th>
       <td>1.000000</td>
-      <td>0.392026</td>
-      <td>0.204902</td>
-      <td>0.992275</td>
+      <td>0.394610</td>
+      <td>0.203799</td>
+      <td>0.992260</td>
     </tr>
     <tr>
       <th>cemex</th>
-      <td>0.392026</td>
+      <td>0.394610</td>
       <td>1.000000</td>
-      <td>-0.335378</td>
-      <td>0.341187</td>
+      <td>-0.334212</td>
+      <td>0.343832</td>
     </tr>
     <tr>
       <th>mxn</th>
-      <td>0.204902</td>
-      <td>-0.335378</td>
+      <td>0.203799</td>
+      <td>-0.334212</td>
       <td>1.000000</td>
-      <td>0.321794</td>
+      <td>0.320838</td>
     </tr>
     <tr>
       <th>goog_mxn</th>
-      <td>0.992275</td>
-      <td>0.341187</td>
-      <td>0.321794</td>
+      <td>0.992260</td>
+      <td>0.343832</td>
+      <td>0.320838</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -557,31 +576,31 @@ df[&#39;goog_mxn&#39;] = df.goog * df.mxn
   <tbody>
     <tr>
       <th>goog</th>
-      <td>989.715174</td>
-      <td>40.306988</td>
-      <td>7.829520</td>
-      <td>20533.828368</td>
+      <td>988.776734</td>
+      <td>40.530323</td>
+      <td>7.783312</td>
+      <td>20512.245275</td>
     </tr>
     <tr>
       <th>cemex</th>
-      <td>40.306988</td>
-      <td>10.681210</td>
-      <td>-1.331311</td>
-      <td>733.475357</td>
+      <td>40.530323</td>
+      <td>10.669029</td>
+      <td>-1.325855</td>
+      <td>738.323941</td>
     </tr>
     <tr>
       <th>mxn</th>
-      <td>7.829520</td>
-      <td>-1.331311</td>
-      <td>1.475261</td>
-      <td>257.095865</td>
+      <td>7.783312</td>
+      <td>-1.325855</td>
+      <td>1.475110</td>
+      <td>256.175014</td>
     </tr>
     <tr>
       <th>goog_mxn</th>
-      <td>20533.828368</td>
-      <td>733.475357</td>
-      <td>257.095865</td>
-      <td>432678.385862</td>
+      <td>20512.245275</td>
+      <td>738.323941</td>
+      <td>256.175014</td>
+      <td>432192.066125</td>
     </tr>
   </tbody>
 </table>
@@ -594,10 +613,10 @@ df[&#39;goog_mxn&#39;] = df.goog * df.mxn
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>goog         31.459739
-cemex         3.268212
-mxn           1.214603
-goog_mxn    657.782932
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>goog         31.444820
+cemex         3.266348
+mxn           1.214541
+goog_mxn    657.413162
 dtype: float64
 </pre></div>
 </div>
@@ -610,10 +629,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>goog          499.407873
-cemex          51.881257
-mxn            19.281231
-goog_mxn    10441.980331
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>goog          499.171050
+cemex          51.851667
+mxn            19.280244
+goog_mxn    10436.110418
 dtype: float64
 </pre></div>
 </div>
@@ -672,7 +691,7 @@ dtype: float64
     <a class='right-next' id="next-link" href="004_%20session%20retrieving%20data.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Retrieving Data</p>
+        <p class="prev-next-title">Retrieving Data (Incomplete)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

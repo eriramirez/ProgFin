@@ -17,21 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import yfinance as yf
-from pandas_datareader.data import DataReader
-from datetime import datetime, timedelta
-import pandas as pd
-import numpy as np
+# Loan amount (loan):
+property_price = 600000
+down_payment = .20
+loan = house_price*(1-down_payment)
+print(f"The loan is valued at {loan:4.2f} USD")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01myfinance[39;00m [38;5;28;01mas[39;00m [38;5;21;01myf[39;00m
-[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_datareader[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdata[39;00m [38;5;28;01mimport[39;00m DataReader
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdatetime[39;00m [38;5;28;01mimport[39;00m datetime, timedelta
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 4[0m
+[1;32m      2[0m property_price [38;5;241m=[39m [38;5;241m600000[39m
+[1;32m      3[0m down_payment [38;5;241m=[39m [38;5;241m.20[39m
+[0;32m----> 4[0m loan [38;5;241m=[39m [43mhouse_price[49m[38;5;241m*[39m([38;5;241m1[39m[38;5;241m-[39mdown_payment)
+[1;32m      5[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mThe loan is valued at [39m[38;5;132;01m{[39;00mloan[38;5;132;01m:[39;00m[38;5;124m4.2f[39m[38;5;132;01m}[39;00m[38;5;124m USD[39m[38;5;124m"[39m)
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas_datareader'
-ModuleNotFoundError: No module named 'pandas_datareader'
+[0;31mNameError[0m: name 'house_price' is not defined
+NameError: name 'house_price' is not defined
 

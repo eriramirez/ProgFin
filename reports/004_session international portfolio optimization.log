@@ -17,21 +17,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import yfinance as yf
-from pandas_datareader.data import DataReader
-from datetime import datetime, timedelta
-import pandas as pd
-import numpy as np
+df = pd.DataFrame({"goog":goog.Close, "cemex":cemex.Close, 'mxn':mxn['Close']})
+# drop rows where all columns in subset are NA
+df = df.dropna(axis=0, how='all', subset=('goog', 'cemex'))
+# fill with the value of the previous date's values
+df = df.fillna(method='ffill')
+# in case there are empty rows at the beginning, fill with following date's values
+df = df.fillna(method='bfill')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01myfinance[39;00m [38;5;28;01mas[39;00m [38;5;21;01myf[39;00m
-[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_datareader[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdata[39;00m [38;5;28;01mimport[39;00m DataReader
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdatetime[39;00m [38;5;28;01mimport[39;00m datetime, timedelta
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[20], line 1[0m
+[0;32m----> 1[0m df [38;5;241m=[39m pd[38;5;241m.[39mDataFrame({[38;5;124m"[39m[38;5;124mgoog[39m[38;5;124m"[39m:[43mgoog[49m[38;5;241m.[39mClose, [38;5;124m"[39m[38;5;124mcemex[39m[38;5;124m"[39m:cemex[38;5;241m.[39mClose, [38;5;124m'[39m[38;5;124mmxn[39m[38;5;124m'[39m:mxn[[38;5;124m'[39m[38;5;124mClose[39m[38;5;124m'[39m]})
+[1;32m      2[0m [38;5;66;03m# drop rows where all columns in subset are NA[39;00m
+[1;32m      3[0m df [38;5;241m=[39m df[38;5;241m.[39mdropna(axis[38;5;241m=[39m[38;5;241m0[39m, how[38;5;241m=[39m[38;5;124m'[39m[38;5;124mall[39m[38;5;124m'[39m, subset[38;5;241m=[39m([38;5;124m'[39m[38;5;124mgoog[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mcemex[39m[38;5;124m'[39m))
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas_datareader'
-ModuleNotFoundError: No module named 'pandas_datareader'
+[0;31mNameError[0m: name 'goog' is not defined
+NameError: name 'goog' is not defined
 
